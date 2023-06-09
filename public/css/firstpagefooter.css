@@ -1,0 +1,15 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url('/font/Fjalla_One/FjallaOne-Regular.ttf');
+}
+.card{
+    margin-top: 20px;
+}
+.customer{
+    font-family: myFirstFont;
+    font-size: 48px;
+    font-weight: 400;
+    font-variant-caps: petite-caps;
+}
+
+

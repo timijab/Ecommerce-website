@@ -1,5 +1,5 @@
 .first_div{
-    background-image: url("/static/images/Shop online- first.png");
+    background-image: url("/images/Shop online- first.png");
     height: 750px;
     width: 100%;
     background-position: center;
@@ -9,7 +9,7 @@
 
 }
 .middle_div{
-    background-image: url("/static/images/shop online-second.png");
+    background-image: url("/images/shop online-second.png");
     height: 750px;
     width: 100%;
     background-position: center;
@@ -19,7 +19,7 @@
 
 }
 .third_div{
-    background-image: url("/static/images/Shop online-second.png");
+    background-image: url("/images/Shop online-second.png");
     height: 750px;
     width: 100%;
     background-position: center;
@@ -65,7 +65,6 @@ hr{
     color: white;
     font-size: larger;
     cursor: pointer;
-    border-sizing: border-box;
     overflow: visible;
     padding: 4px 15px;
     text-align: center;
@@ -98,9 +97,6 @@ hr{
     padding-top: 40px;
 }
 
-#writeups{
-
-}
 #shoes{
     display:flex;
     justify-items: center;
@@ -179,6 +175,7 @@ hr{
 }*/
 /* carosel div */
 
+/*
 .carosel_div{
     background-color: white;
 }
@@ -191,4 +188,8 @@ hr{
         width: 100%;
         margin-left: 0;
     }
+}
+*/
+#middleblock{
+    padding-bottom: 6%;
 }

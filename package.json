@@ -1,0 +1,15 @@
+{
+  "name": "onlineshop",
+  "version": "1.0.0",
+  "description": "Alice landlord online shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isaac Afolayan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
