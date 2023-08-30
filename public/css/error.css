@@ -1,0 +1,54 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('/font/Fjalla_One/FjallaOne-Regular.ttf');
+  }
+
+body{
+   background-color: #127789;
+   font-family: myFirstFont, 'Courier New';
+}
+.container{
+    display: grid;
+    justify-content: center;
+    margin-top: 30vh;
+
+}
+.container2{
+    display: flex;
+    justify-content: center;
+}
+.page{
+    font-size: 800%;
+    color: white;
+}
+.store:hover{
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+}
+.home{
+    padding: 20px;
+    margin-right: 20px;
+    font-family: myFirstFont;
+}
+.home:hover{
+    background-color: beige;
+    cursor: pointer;
+    border: 0px solid ;
+}
+.store{
+    padding: 20px;
+    font-family: myFirstFont;
+}
+#one{
+    color: #001C30;
+}
+#two{
+    color: white;
+}
+#third{
+    color: #64CCC5;
+}
+
+
+

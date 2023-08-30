@@ -6,10 +6,23 @@
     margin-top: 20px;
 }
 .customer{
+    padding-top: 10px; 
     font-family: myFirstFont;
-    font-size: 48px;
+    font-size: 38px;
     font-weight: 400;
     font-variant-caps: petite-caps;
 }
+.buyshop{
+  display: block;
 
+}
+.review{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+footer{
+  bottom: auto;
+}
 

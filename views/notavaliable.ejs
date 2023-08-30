@@ -1,0 +1,27 @@
+<%- include('Header.ejs') %>
+<link href="/css/resource.css" type="text/css" rel="stylesheet">
+<span class="pdiv">
+    <div class="buttons">
+        <form method="post" action="/search">
+            <input type="text" name="search" id="psearch" placeholder="">
+            <button type="submit" id="searchbutton"> Search </button>
+        </form>
+    </div>
+    <div class="buttons2">    
+        <a href="/"><button type="button" id="home"> Go Home </button></a>
+        <a href="/category"><button type="button" id="goto"> Go to category </button></a>
+    </div>
+    <div class="container oops">
+        <h1> ooPS!!  </h1>
+        <!-- MY IDEA IS ADDING A SAD FACE EMOJI OR AN ANIMATION TOO  -->
+    </div>
+    <div class="container parentdiv">
+
+        <h3> We couldn't find this Item "<%= item %>"....  </h3> 
+    </div>
+    <p id="emoji">
+        Can't seem to find this item you are looking for. Check out our<br>
+        Store category or search for another item.</p>
+    </h1>
+</span>
+

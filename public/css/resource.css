@@ -1,0 +1,61 @@
+body{
+    background-color: #127789;
+    color: white;
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url('/font/Fjalla_One/FjallaOne-Regular.ttf');
+  }
+
+.oops{
+    font-family: myFirstFont;
+    font-variant-caps: petite-caps;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.parentdiv{
+    display: flex;
+    justify-content: center;
+}   
+#emoji{
+    display: flex;
+    justify-content: center;
+}
+.buttons2{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+.buttons{
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    font-family: myFirstFont;
+}
+#psearch{
+    font-family: serif;
+}
+#home{
+    margin-right: 10px;
+    background-color: white;
+    color:#127789 ;
+    padding: 10px;
+    border-color: white;
+    font-family: myFirstFont;
+}
+#goto{
+    background-color: #127789;
+    color: white;
+    padding: 10px;
+    border-color: white;
+    font-family: myFirstFont;
+}
+#searchbutton{
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: darkblue;
+    color: white;
+    border-color: white;
+}

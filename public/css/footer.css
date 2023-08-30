@@ -1,0 +1,48 @@
+.footer{
+    padding:40px;
+    font-family: myFirstFont;
+}
+#logo1{
+    height: 30%;
+    border: none;
+}
+.get_Started{
+    padding: 10px;
+    background-color: blueviolet;
+    color: white;
+
+}
+#mall{
+    color: blueviolet;
+}
+.colimage{
+    height: 300px;
+    
+}
+@media screen and (min-width: 768px){
+    .colimage{
+        padding-left: 30%;
+    }
+}
+@media  screen and (max-width:991px){
+    .s2{
+        margin-top:10px;
+    }
+    .s1{
+        margin-bottom: 10px;
+    }
+}
+
+.only{
+    padding: 0%;
+}
+#log{
+    height:70%;
+}
+#emailinput{
+    padding-left: 80px;
+}
+.copyright{
+    display: flex;
+    justify-content: center;
+}
