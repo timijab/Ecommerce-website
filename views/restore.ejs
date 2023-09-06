@@ -1,0 +1,42 @@
+</thead>     
+<tbody>
+    <% for (var i=0; i <= entryvalues.length; i++) { %>
+    <tr>
+    <th scope="row">
+    <div class="d-flex align-items-center">
+        <img src="<%= image[i] %>" class="img-fluid rounded-3"
+        style="width: 120px;" alt="">
+        <div class="flex-column ms-4">
+    <p class="mb-2"> <%= entrykeys[i] %> </p>
+     <p class="mb-0"> <%= entryvalues[i] %> </p>
+        </div>
+    </div>
+    </th>
+    <td class="align-middle">
+    <div class="d-flex flex-row">
+        <button data-value="<%=[i] %>" class="btn btn-link px-2 left"
+        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+        <i class="fas fa-minus"></i>
+        </button>
+
+        <input id="form1" min="0" name="quantity" value="<%= entryvalues[i] %>" type="number"
+        class="form-control form-control-sm" style="width: 50px;" />
+
+        <button data-value="<%=[i] %>" class="btn btn-link px-2 right"
+        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+        <i class="fas fa-plus"></i>
+        </button>
+    </div>
+      </td>
+    
+     
+    <td class="align-middle">
+    <p class="mb-0 price" id="price<%=[i]%>" style="font-weight: 500;"><%= data[i] %></p>
+    </td>
+</tr>
+</tbody>  
+
+<% } %>
+
+</table>    
+<!-- smaller screen table -->

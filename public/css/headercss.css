@@ -1,0 +1,76 @@
+#logo{
+    width: 30%;
+    height: 10%;
+}
+.navbar{
+    background-color: #127789;
+}
+.collapse{
+    margin-left:50%;
+}
+.btn{
+    background-color: #002B5B;
+    color: white;
+    border-color: #002B5B;
+}
+@media only screen and (max-width:600px){
+    .shopcart{
+        position: absolute;
+        left: 50%;
+    }
+}
+
+
+*.icon-blue {
+    color: #0088cc;
+  }
+  
+  *.icon-grey {
+    color: grey;
+  }
+  
+  i {
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+  }
+  
+  .badge:after {
+    content: attr(data-count);
+    position: absolute;
+    background: #ff6600;
+    height: 2rem;
+    top: 0.1rem;
+    right: 0.8rem;
+    width: 30%;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid #ff6600;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+  .profile{
+    width: 20%;
+  }
+  .btn{
+    background-color: #183D3D;
+
+  }
+
+@media only screen and (max-width:600px){
+    #show{
+      position: absolute;
+      left: 80%;
+    }
+}
+
+.dropdown-menu{
+  position: absolute;
+  left: -100px;
+}
+
+
