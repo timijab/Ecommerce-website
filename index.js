@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 var searched = '';
 var email_address = '';
 let year = datemod.year();
-let cartchoice = [];
+
 // express-session.
 app.use(session({
     secret: "Our little stuff.",
@@ -36,7 +36,10 @@ app.use(passport.session());
 
 
 // mongoose connection
-mongoose.connect('mongodb://127.0.0.1:27017/user');
+// database connection
+const admin = process.env.ADMIN_PASSWORD;
+const uri = "mongodb+srv://admin-isaac:"+admin+"@cluster0.rfa5zq9.mongodb.net/product";
+const connection = mongoose.connect(uri);
 
 const userSchema = mongoose.Schema({
     name: String,
@@ -113,16 +116,15 @@ app.post("/login", function(req, res){
         if (err) {
         console.log(err);
         } else {
-        passport.authenticate("local", {failureRedirect:'/login/error'})(req, res, function(){
+        passport.authenticate('local', {failureRedirect:'/login'}) (req, res, function(){
             if (req.user.id === process.env.ADMIN){
                 res.redirect('/admin');
             }else{
             res.redirect("/store");
             }
         });
-        }
+        };
     });
-    
     });  
 
 app.get('/login/error',function(req, res){
@@ -152,7 +154,6 @@ app.get('/admin', function(req, res) {
             res.redirect('/');
         }
     }
-    // Develop an else statement with 404
 
 })
 
@@ -192,6 +193,7 @@ app.post('/register', function(req, res) {
                 res.redirect('/login');
             }else{
                 passport.authenticate('local')(req, res, function(){
+                    console.log(req.isAuthenticated());
                     res.redirect('/');
                 })
 
@@ -203,7 +205,7 @@ app.post('/register', function(req, res) {
     }
 });
 
-
+let cartchoice = [];
 
 app.get('/store', (req, res) => {
     var shop = product.find({}).then(function(data){
@@ -218,16 +220,24 @@ app.post('/store', function(req, res) {
 
     // get value of cart item
     var constumerRequest = req.body.value;
-    cartchoice.push(constumerRequest);
+    if(!cartchoice.includes(constumerRequest)){
+        cartchoice.push(constumerRequest);
+    }else{
+        console.log('triggered');
+    }
+    // when reloaded enters an infinite loop.
     res.redirect('/store');
 });
 
+var i = 0;
+var num = 0;
 const prices = [];
 const images = [];
 app.get('/checkout', function(req, res) {
     if(!req.isAuthenticated()){
         res.redirect('login');
     }else{
+        
         if (cartchoice.length === 0){
             res.redirect('/store');
         }else{
@@ -241,30 +251,24 @@ app.get('/checkout', function(req, res) {
             }
             let keys = Object.keys(counts);
             let value = Object.values(counts);
-            // query database for each key.
-            var i = 0;
-            keys.forEach(function (element) {
-                product.find({title:element}).then(function (data) {
-                    prices.push(data[0].price);
-                    if(!images.includes(data[0].images_list[0])){
-                        images.push(data[0].images_list[0])
-                        i = i + 1;
-                        // This is done to render the page once even if mongodb search is done multiple times.
-                        if ( i === keys.length ) {
-                            res.render('checkout.ejs', {currentdate:datemod.date(), year:year, entrykeys:keys, entryvalues:value, data:prices, image:images});
-                        }
+            Promise.all(keys.map(key => {
+                return product.findOne({ title: key }).exec()
+                  .then(item => {
+                    if (!images.includes(item.images_list[0])){
+                        prices.push(item.price);
+                        images.push(item.images_list[0]);
                     }
-                    
+                    });
+                })).then(() => {
+                  res.render('checkout.ejs', {currentdate:datemod.date(), year:year, entrykeys:keys, entryvalues:value, data:prices, image:images});
+                }
 
-                })
-            
-            })
-            
-            // bug alert we need to enure the number of clicked items are displayed correctly.
+                )    
         }
     }
 
 });
+
 
 // searched item
 //  we used : to define the parameter in the url.

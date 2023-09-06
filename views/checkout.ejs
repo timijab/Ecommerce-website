@@ -1,36 +1,26 @@
 <%- include ('header.ejs') %>
 <link rel="stylesheet" type="text/css" href="/css/checkout.css">
-<section class="h-100 h-custom">
+<!-- <section class="h-100 h-custom">
     <div class="container h-100 py-5">
         <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col">
+        <div class="col"> -->
     
-            <div class="table-responsive">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col" class="h5">Shopping Bag</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                <tr>
-                    <% for (var i=0; i <= entryvalues.length; i++) { %>
-                    <th scope="row">
-                    <div class="d-flex align-items-center">
-                        <img src="<%= image[i] %>" class="img-fluid rounded-3"
-                        style="width: 120px;" alt="">
-                        <div class="flex-column ms-4">
+        
+        <h5 class="text-center title"> Shopping Bag </h5>  
+       
+        <% for (var i=0; i <= entryvalues.length-1; i++) { %>
+            <div class="container checkers">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-12 text-center">
+                        <img src="<%= image[i] %>" class="productimg img-fluid rounded-3" style="width: 120px;" alt="">
+                </div>
+                <div class="col-lg-3 col-sm-12 text-center">
                     <p class="mb-2"> <%= entrykeys[i] %> </p>
-                     <p class="mb-0"> <%= entryvalues[i] %> </p>
-                        </div>
-                    </div>
-                    </th>
-                    <td class="align-middle">
+                    <!-- <p class="mb-0"> <%= entryvalues[i] %> </p> -->
+                </div>
+                <div class="col-lg-3 col-sm-12 big text-center">
                     <div class="d-flex flex-row">
-                        <button class="btn btn-link px-2"
+                        <button data-value="<%=[i] %>" class="btn btn-link px-2 left"
                         onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                         <i class="fas fa-minus"></i>
                         </button>
@@ -38,23 +28,24 @@
                         <input id="form1" min="0" name="quantity" value="<%= entryvalues[i] %>" type="number"
                         class="form-control form-control-sm" style="width: 50px;" />
     
-                        <button class="btn btn-link px-2"
+                        <button data-value="<%=[i] %>" class="btn btn-link px-2 right"
                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                         <i class="fas fa-plus"></i>
                         </button>
                     </div>
-                      </td>
-                    
-                     
-                    <td class="align-middle">
-                    <p class="mb-0" id="price" style="font-weight: 500;"><%= data[i] %></p>
-                    </td>
-                </tr>
-                <% } %>
-                
-                </tbody>
-            </table>
+                </div>
+                <div class="col-lg-3 text-center col-sm-12">
+                    <p class="price" id="price<%=[i]%>" style="font-weight: 500;"><%= data[i] %> </p>
+                </div>
+                </div>
             </div>
+                
+        </div>
+                
+        <% } %>
+                
+             
+            <!-- smaller screen table -->
     
             <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
             <div class="card-body p-4">
@@ -131,25 +122,29 @@
                 <div class="col-lg-4 col-xl-3">
                     <div class="d-flex justify-content-between" style="font-weight: 500;">
                     <p class="mb-2">Subtotal</p>
-                    <p class="mb-2">$23.49</p>
+                    <% let sum = 0 %>
+                    <% data.forEach(element =>{ %>
+                        <% sum += parseInt(element) %>
+                    <% }) %>
+                    <p class="mb-2 subtotal">€ <%= sum %></p>
                     </div>
     
                     <div class="d-flex justify-content-between" style="font-weight: 500;">
                     <p class="mb-0">Shipping</p>
-                    <p class="mb-0">$2.99</p>
+                    <p class="mb-0">free</p>
                     </div>
     
                     <hr class="my-4">
     
                     <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
                     <p class="mb-2">Total (tax included)</p>
-                    <p class="mb-2">$26.48</p>
+                    <p class="mb-2 check">€ <%= sum %></p>
                     </div>
     
                     <button type="button" class="btn btn-primary btn-block btn-lg">
                     <div class="d-flex justify-content-between">
                         <span>Checkout</span>
-                        <span>$26.48</span>
+                        
                     </div>
                     </button>
     
@@ -163,5 +158,6 @@
         </div>
     </div>
     </section>
-
+    
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="/javascript/checkout.js"></script>

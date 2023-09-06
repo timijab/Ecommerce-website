@@ -1,3 +1,8 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('/font/Fjalla_One/FjallaOne-Regular.ttf');
+}
+
 .shopcart{
      display: none;
 }
@@ -5,4 +10,25 @@
     .h-custom {
     height: 100vh !important;
     }
+}
+.smaller{
+    display: none;
+
+}
+@media (max-width: 768px) {
+    .big{
+        padding: 30px;
     }
+}
+.checkers{
+    padding:30px;
+}
+.title{
+    padding: 50px;
+    font-size: 25px;
+    color: #016A70;
+    font-family: myFirstFont, 'Courier New', Courier, monospace;
+}
+.productimg{
+    width: 50%;
+}

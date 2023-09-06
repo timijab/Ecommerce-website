@@ -67,3 +67,10 @@
       left: 80%;
     }
 }
+
+.dropdown-menu{
+  position: absolute;
+  left: -100px;
+}
+
+
