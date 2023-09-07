@@ -116,7 +116,7 @@ app.post("/login", function(req, res){
         if (err) {
         console.log(err);
         } else {
-        passport.authenticate('local', {failureRedirect:'/login'}) (req, res, function(){
+        passport.authenticate('local', {failureRedirect:'/login/error'}) (req, res, function(){
             if (req.user.id === process.env.ADMIN){
                 res.redirect('/admin');
             }else{
